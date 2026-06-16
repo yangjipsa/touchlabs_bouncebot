@@ -11,7 +11,7 @@
  *             switch states and print them to
  *             the Serial Monitor.
  *  Board    : Arduino Nano
- *  Pin Map  : SWL -> D8, SWR -> D7
+ *  Pin Map  : Switch Left -> D8, Switch Right -> D7
  * ------------------------------------------
  *  Copyright (c) 2026 TouchLabs.
  *  All rights reserved.
