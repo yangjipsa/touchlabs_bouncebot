@@ -4,7 +4,7 @@
  * ==========================================
  *  Author   : yangjipsa
  *  Company  : TouchLabs (touchlabs.kr)
- *  Version  : 1.0
+ *  Version  : 1.1
  *  Date     : 2026-06-16
  *  Product  : Bounce Bot
  *  Purpose  : Drive forward and avoid obstacles using
@@ -41,7 +41,8 @@ int R_IA = 5;    // Physically wired to IB (D5)
 int R_IB = 6;    // Physically wired to IA (D6)
 
 // ----- Settings (tune these) -----
-int motorSpeed = 100;   // Motor speed (0 - 255)
+int motorSpeedL = 100;   // Motor speed (0 - 255)
+int motorSpeedR = 120;   // Motor speed (0 - 255)
 int backTime   = 300;   // Reverse time (ms)
 int turn90Time = 200;   // Time to rotate about 90 degrees (ms)
 int pauseTime  = 200;   // Brief stop time (ms)
@@ -114,33 +115,33 @@ void loop()
 
 void forward()
 {
-  analogWrite(L_IA, motorSpeed);   
+  analogWrite(L_IA, motorSpeedL);   
   digitalWrite(L_IB, LOW);
-  analogWrite(R_IA, motorSpeed);   
+  analogWrite(R_IA, motorSpeedR);   
   digitalWrite(R_IB, LOW);
 }
 
 void backward()
 {
   digitalWrite(L_IA, LOW);   
-  analogWrite(L_IB, motorSpeed);
+  analogWrite(L_IB, motorSpeedL);
   digitalWrite(R_IA, LOW);   
-  analogWrite(R_IB, motorSpeed);
+  analogWrite(R_IB, motorSpeedR);
 }
 
 void turnRight()   // Left wheel forward, right wheel backward
 {
-  analogWrite(L_IA, motorSpeed);   
+  analogWrite(L_IA, motorSpeedL);   
   digitalWrite(L_IB, LOW);
   digitalWrite(R_IA, LOW);         
-  analogWrite(R_IB, motorSpeed);
+  analogWrite(R_IB, motorSpeedR);
 }
 
 void turnLeft()    // Left wheel backward, right wheel forward
 {
   digitalWrite(L_IA, LOW);   
-  analogWrite(L_IB, motorSpeed);
-  analogWrite(R_IA, motorSpeed);   
+  analogWrite(L_IB, motorSpeedL);
+  analogWrite(R_IA, motorSpeedR);   
   digitalWrite(R_IB, LOW);
 }
 
